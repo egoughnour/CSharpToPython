@@ -17,6 +17,8 @@ public class SomeClass {
             Assert.NotNull(rslt);
         }
         
+        //TODO Check that this submodule's code will build. Needs a configuration update of some kind (framework) for the test to run?
+        //(or to build only a few projects in a task for this test debug run)
         [Fact]
         public void StrykerMutatorWorks() {
             var code = File.ReadAllText(@"../../../stryker-net/src/Stryker.Core/Stryker.Core/Mutators/MutatorBase.cs");
