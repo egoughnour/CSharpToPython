@@ -1,5 +1,6 @@
 ﻿using System;
 using Xunit;
+using System.IO;
 
 namespace CSharpToPython.Tests {
     public class ClassTests {
@@ -13,6 +14,13 @@ public class SomeClass {
     int Main() { return 1; }
 }";
             var rslt = Program.ConvertAndRunCode(engine, code);
+            Assert.NotNull(rslt);
+        }
+        
+        [Fact]
+        public void StrykerMutatorWorks() {
+            var code = File.ReadAllText(@"../../../stryker-net/src/Stryker.Core/Stryker.Core/Mutators/MutatorBase.cs");
+            var rslt = Program.ConvertCode(code);
             Assert.NotNull(rslt);
         }
 
